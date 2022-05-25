@@ -1,0 +1,499 @@
+<h1 style="text-align: center;"><strong><img src="https://drive.google.com/file/d/1tjIUeP7zM3yZ-kErVRNGw_KqbychAmks/view?usp=sharing" alt="Deploy Contract" />OPE Navigation</strong></h1>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Here is the list of topics we will cover in this tutorial:</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Chapter 1. Create an BSN Account</span></p>
+<p><span style="font-weight: 400;">Chapter 2. Connect OPE</span></p>
+<p><span style="font-weight: 400;">Chapter 3. Connect Metamask</span></p>
+<p><span style="font-weight: 400;">Chapter 4. Manage Account</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><strong>Chapter 1: Create an OPE Account</strong></h2>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Open the website: </span><span style="color: #0000ff;"><a style="color: #0000ff;" href="https://www.bsnbase.com" target="_blank"><span style="font-weight: 400;"><span style="text-decoration: underline;">https://www.bsnbase.</span>com</span></a></span><span style="font-weight: 400;">.</span><span style="font-weight: 400;"> Select [Login] -&gt; [Register] to start the application process.</span></li>
+</ul>
+<p><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1ld_EBBk7scs-b3oNQ0wrKkxeTWrDyr0x/view?usp=sharing" alt="BSN Login" /><br /></span></p>
+<p><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1nbt21qvVSmrBUCAMS8y2JJ-pgsqlh6Dx/view?usp=sharing" alt="BSN sign up" /></span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fill in the required details above and press [Confirm] to submit the application form.&nbsp;</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">After registration, a link will be sent to the email address that you have provided. Please follow the link to set up the login password for your account.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Your account has been successfully activated. You can now use the username and password to log into the OPE system.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">You are registered as an &ldquo;Individual Account&rdquo;. If you would require a commercial invoice, please apply as a &ldquo;Corporate Account&rdquo;: After logging into the portal, go to [User Center] -&gt; [Corporate Authentication], and upload an identity authentication.&nbsp;</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Your application will be reviewed automatically. Once the account has been verified, a notification will be sent to the registered mobile phone and email address.</span></li>
+</ul>
+<p><span style="font-weight: 400;"><br /><br /><br /><br /></span></p>
+<p>&nbsp;</p>
+<h2><strong>Chapter 2: Connect OPE</strong></h2>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">OPE (Open Permissioned Ethereum), known as the &ldquo;Wuhan chain&rdquo;, is an Ethereum blockchain operated by Neptune Digital Limited.</span></p>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<h3><strong>2.1 OPE Gateway Access Instructions</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>Cryptographic Algorithm</strong></h4>
+<p><span style="font-weight: 400;">The Wuhan Chain (based on Ethereum) generates chain addresses and public and private keys through ECDSA (secp256k1) algorithm.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>Chain ID</strong></h4>
+<p><span style="font-weight: 400;">The Wuhan Chain ID is </span><span style="font-weight: 400;">5555</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><strong>Connecting Method</strong></p>
+<p><span style="font-weight: 400;">Wuhan Chain (based on Ethereum) currently supports JSON-RPC API and WebSocket connections. API documentation reference: </span><a href="https://eth.wiki/json-rpc/API" target="_blank"><span style="font-weight: 400;">https://eth.wiki/json-rpc/API</span></a></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><strong>Key Mode</strong></p>
+<p><span style="font-weight: 400;">Supports Key Escrow, Uploading Public Key and Registering Chain Address modes.</span></p>
+<p><span style="font-weight: 400;">Under uploading public key mode and registering chain address mode, users can manage their own keys and perform transactions in accordance with the API documentation.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Under key escrow mode, BSN signs the blocks on behalf of the user so the </span><span style="font-weight: 400;">eth_sendTransaction</span><span style="font-weight: 400;"> and </span><span style="font-weight: 400;">eth_sendRawTransaction</span><span style="font-weight: 400;"> interfaces will not be able to complete transactions by the message format in the API documentation. The data needs to be submitted in the following format:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="background-color: #999999;"><code></code></span><span style="font-weight: 400;"><code></code></span></p>
+<p><span style="background-color: #999999;">{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{</span></p>
+<p><span style="background-color: #999999;">&nbsp; "from": "0xa447c3acb0df24a053e9acab72da23b01ba560f0",</span></p>
+<p><span style="background-color: #999999;">&nbsp; "gas": "0x76c0",</span></p>
+<p><span style="background-color: #999999;">&nbsp; "gasPrice": "0x9184e72a000",</span></p>
+<p><span style="background-color: #999999;">&nbsp; "value": "0x9184e72a",</span></p>
+<p><span style="background-color: #999999;">&nbsp; "data": "0x608060405234801561001057600080fd5b5060c78061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80636057361d146037578063b05784b8146062575b600080fd5b606060048036036020811015604b57600080fd5b8101908080359060200190929190505050607e565b005b60686088565b6040518082815260200191505060405180910390f35b8060008190555050565b6000805490509056fea26469706673582212208dea039245bf78c381278382d7056eef5083f7d243d8958817ef447e0a403bd064736f6c63430006060033"</span></p>
+<p><span style="background-color: #999999;">}],"id":1}</span></p>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<h4><strong>Blockchain Explorer URL</strong></h4>
+<p><span style="font-weight: 400;"><a href="http://explorer.ope.bsnbase.com">http://explorer.ope.bsnbase.com</a></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Otherwise, users can set up their own Wuhan Chain explorer. Details are as follows:</span></p>
+<p>&nbsp;</p>
+<ul>
+<li><strong>Prerequisites</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">node </span><span style="font-weight: 400;">v10.15.3</span><span style="font-weight: 400;"> or later</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">npm</span><span style="font-weight: 400;"> v6.4.1</span><span style="font-weight: 400;"> or later</span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li><strong>Installation</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><span style="color: #0000ff;"><a href="https://github.com/xops/expedition">https://github.com/xops/expedition</a></span></span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li><strong>Clone or download the project, and install dependencies</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">git clone <a href="https://github.com/xops/expedition.git" target="_blank">https://github.com/xops/expedition.git</a> &amp;&amp; cd expedition &amp;&amp; npm install</span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><strong>Start the explorer</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">npm start</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">The explorer will run at </span><span style="font-weight: 400;"><a href="http://localhost:3000/">http://localhost:3000/</a></span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><strong>Set rpc via url</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">?rpcUrl=[gateway address]/api/[projectId]/rpc</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Example:&nbsp;</span></p>
+<p style="padding-left: 40px;"><a href="http://localhost:3000/?rpcUrl=https://opbningxia.bsngate.com:18602/api/[projectId]/rpc"><span style="font-weight: 400;">http://localhost:3000/?rpcUrl=https://opbningxia.bsngate.com:18602/api/[projectId]/rpc</span></a></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Instructions for naming [projectid]:</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">For key escrow mode, please add BsnAccount within the url. Not applicable to other modes.</span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><strong>Configure default urls via environment variables</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">REACT_APP_ETH_RPC_URL=<a href="https://opbningxia.bsngate.com:18602/api/%5bprojectId%5d/rpc">https://opbningxia.bsngate.com:18602/api/[projectId]/rpc</a> npm start&nbsp;</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><strong>RPC url</strong></p>
+<p><span style="font-weight: 400;">[gateway address]/api/[projectid]/[BsnAccount]/[Protocol]</span></p>
+<p><span style="font-weight: 400;">If you access using the project key, please compose the request address using the above format </span><span style="font-weight: 400;">and add x-api-key:{ProjectKeyValue} in the http header.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;">Note: Under key escrow mode, BsnAccount must be added to indicate the signature from BSN. This is not required for other modes: users can set their default signature and the url will only be used during transactions.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>Project ID</strong></h4>
+<p><span style="font-weight: 400;">The project id will be generated after the project is created. Please see the information below.</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1Q3xi38b6lEOgCaB_cTofi6gWHQbc5vpC/view?usp=sharing" alt="Project ID" /><br /><br /></span></p>
+<p><span style="font-weight: 400;">The project id can also be obtained from [Project Management] -&gt; [Operation] -&gt; [Download Access Parameters].</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1TClluj74a0okHpSc6dyREHjslbjBZx8o/view?usp=sharing" alt="Project ID" /><br /><br /></span></p>
+<p>&nbsp;</p>
+<h4><strong>BSN Account</strong><span style="font-weight: 400;">&nbsp;</span></h4>
+<p><span style="font-weight: 400;">BSN chain account id. Go to [Chain Account Management] -&gt; [Chain Account Details]. Details are shown as follows.</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/18WxZ4RMjVd-LtLc4qz4wNJTO97R355-J/view?usp=sharing" alt="BSN Account" /><br /><br /></span></p>
+<p>&nbsp;</p>
+<h4><strong>Protocol</strong></h4>
+<p><span style="font-weight: 400;">OpenChain - protocol (rpc,WebSocket).</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>Smart Contract Language</strong></h4>
+<p><span style="font-weight: 400;">Wuhan Chain (based on Ethereum) officially uses Solidity language for contract development.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>Development Document</strong></h4>
+<p><span style="font-weight: 400;"><a href="https://docs.soliditylang.org/en/latest/index.html">https://docs.soliditylang.org/en/latest/index.html</a></span><span style="font-weight: 400;"><br /></span></p>
+<p>&nbsp;</p>
+<h4><strong>Development Case</strong></h4>
+<p><a href="https://ethereum.org/zh/developers/docs/smart-contracts/"><span style="font-weight: 400;"><span style="color: #0000ff;">https://ethereum.org/zh/developers/docs/smart-contracts/</span></span></a></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>Examples</strong></h4>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><strong>Get Block Number</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Applicable to key escrow mode, uploading public key mode and registering chain </span><span style="font-weight: 400;">address mode.</span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Interface url:&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">{gateway address}/api/{your open chain project ID}/rpc</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">For users who enabled the project key, please add the x-api-key request header to the http header.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Request message:</span></p>
+<p><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">{</span></span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"jsonrpc": "2.0",</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"method": "eth_blockNumber",</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"params": [],</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"id": 1</span></p>
+<p><span style="font-weight: 400; background-color: #999999;">}</span><span style="font-weight: 400;"><br /><br /></span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><strong>eth_sendTransaction</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Applicable to key escrow mode, and that BSN signs on behalf of users. Only supports single&nbsp;</span><span style="font-weight: 400;">transaction signature broadcasts.</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Interface url:&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">{gateway address}/api/{your open chain project ID}/rpc</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">For users who enabled the project key, please add the x-api-key request header to the http header.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Request message:</span></p>
+<p><span style="font-weight: 400; background-color: #999999;">{</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"jsonrpc": "2.0",</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"method": "eth_sendTransaction",</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"params": [</span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">{</span></span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">"from": "0x64cafADFac8864fE5711EfFec33477293113Af98",</span></span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">"to": "0x761b3d08A82F97d1010C7606988a5Aa122b1369D",</span></span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">"gas": "0xC350",</span></span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">"gasLimit": "0xC950",</span></span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">"gasPrice": "0xc1b720800",</span></span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value": "0x5"</span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">}</span></span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">],</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"id": 123</span></p>
+<p><span style="font-weight: 400; background-color: #999999;">}</span></p>
+<p>&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><strong>eth_sendRawTransaction</strong></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Applicable to </span><span style="font-weight: 400;">uploading public key mode and registering chain address mode.</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Interface url:&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">{gateway address}/api/{your open chain project ID}/rpc</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">For users who enabled the project key, please add the x-api-key request header to the http header.</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">Request message:</span></p>
+<p><span style="font-weight: 400; background-color: #999999;">{</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"jsonrpc": "2.0",</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"method": "eth_sendRawTransaction",</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"params": [</span></p>
+<p style="padding-left: 40px;"><span style="background-color: #999999;"><span style="font-weight: 400;">&nbsp;&nbsp;&nbsp;&nbsp;</span> <span style="font-weight: 400;">"0xf86c3d843b9aca008303345094761b3d08a82f97d1010c7606988a5aa18bb1369d888ac7230489e80000801ba078977d1b1707c9afc6bb0b07f8ebf6b56e1fa359c04a540c16ebffcd6339bda2a0230be97c3f5fd123de0e9a062c2ce8ec9fcffcdb864a84b9ba6f2383c126c9c8"</span></span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">],</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400; background-color: #999999;">"id": 2</span></p>
+<p><span style="font-weight: 400; background-color: #999999;">}</span></p>
+<p><span style="font-weight: 400;"><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></span></p>
+<h2><strong>Chapter 3 Connect Metamask</strong></h2>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Wuhan Chain supports online IDE service. Users are advised to set up Metamask before using the service.</span></p>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<h3><strong>3.1 Wuhan Chain - Metamask Configuration Parameters</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Access to Wuhan Chain network configuration parameters:</span></li>
+</ul>
+<p style="padding-left: 40px;"><strong>RPC URL Rules</strong>:</p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">[gateway address]/api/[projectid]/RPC</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><strong>Chain ID</strong>: 5555</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Registering chain address parameters:</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">The private key of the registering chain address on Wuhan Chain.</span></p>
+<p><span style="font-weight: 400;"><br /><br /><br /></span></p>
+<h3><strong>3.2 Wuhan Chain Contract Deployment and Invocation</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;"><strong>Step 1</strong>: Login the BSN portal, go to [Open Consortium Chain] -&gt; [Project Management] and choose [Online IDE].</span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1jFtQjl7TNOUx4KLEwzfw1OG6zC896sEq/view?usp=sharing" alt="Project Management" /></span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 2</strong>: Select the platform type and click [OK] to continue to IDE</span></p>
+<p>&nbsp;</p>
+<p><img src="https://drive.google.com/file/d/1zESjl68-95J1SOhGSuvGxqIJWpl65vat/view?usp=sharing" alt="Platform Type" /></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 3</strong>: In the IDE, you can create, set up and edit the chaincode package and to create a new project.</span><span style="font-weight: 400;"><span style="font-weight: 400;"><br /></span></span></p>
+<p>&nbsp;</p>
+<p><img src="https://drive.google.com/file/d/1I8SeNGKX2vX03KP_YwqYG-6pf1MIqo97/view?usp=sharing" alt="IDE - Project Management" /></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 4</strong>: Enter title for the new project and click [OK].<br /><br /></span></p>
+<p><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/15jZLFYbfK_ac4sDwWmdAE2URbv7ozTH7/view?usp=sharing" alt="New Project Title" /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 5</strong>: Click to open the new project.<br /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1bktbBZF06eQ0iUTCdVSDAqqDfdE9jkFJ/view?usp=sharing" alt="Open New Project" /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 6</strong>: Create a chaincode package</span></p>
+<p><span style="font-weight: 400;">Users can choose to upload the chaincode package from a local directory or create it directly with the template. The two methods are described below:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">a) Upload a chaincode package from a local directory</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">1. </span><span style="font-weight: 400;">Click to upload the contract package</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1jOrtUs2n2wb60QtRYQtSk3IiAHy5uqpr/view?usp=sharing" alt="Upload Contract Package" /></span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">2. Drag and drop the chaincode package into the window or click the icon to upload -&gt; [Confirm upload]</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1DA0HkEiFz83r6v8q2ol9K4qT3QSchtTz/view?usp=sharing" alt="Upload Window" /></span></p>
+<p style="padding-left: 80px;">&nbsp;</p>
+<p><span style="font-weight: 400;">b) Create a chaincode package with a template.&nbsp;</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;">IDE provides multiple templates for users to choose from.</span></p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1tzyJT8aTqnwvlgK-3MY_II124NkONbPQ/view?usp=sharing" alt="Templates" /></span><span style="font-weight: 400;"><br /><br /></span></p>
+<p><span style="font-weight: 400;"><strong>Step 7</strong>: Compile a chaincode package</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1ez5qjN39eigdvl3bP9_ufCPqE3Hp5w1_/view?usp=sharing" alt="Compile Package" /><br /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 8</strong>: Connect to MetaMask wallet&nbsp;</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/19SBljs8ABEaivEl6yAFWYTu1DqiI2v58/view?usp=sharing" alt="Metamask Connect" /><br /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 9</strong>: Build a chaincode package</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1GDaOJYXcxUDvfJL83dsp_d3SyPRXx3Au/view?usp=sharing" alt="Build Package" /></span></p>
+<p>&nbsp;</p>
+<p><span style="font-weight: 400;"><strong>Step 10</strong>:View transaction details<br /></span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1vgzPD00Sgc_qEj95gGFAiQ_8tllzSyWT/view?usp=sharing" alt="Transaction Details" /><br /><br /><br /><br /></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><strong>3.3 Wuhan Chain Chaincode Editing&nbsp;</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">For users who have successfully deployed the on-chain code package, they can invoke the smart contract via IDE.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Step 1</strong>: Log in to the BSN portal, enter [Open Consortium Chain] -&gt; [Project Management]. Click [Deploy contract] on the corresponding project.&nbsp;</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1tjIUeP7zM3yZ-kErVRNGw_KqbychAmks/view?usp=sharing" alt="Deploy Contract" /><br /></span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Step 2</strong>: Select the chaincode package, click [online IDE] to continue to the IDE webpage</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1Mqp5zQOdd3ck-Pc4EgYdyxzsS_E_f3gt/view?usp=sharing" alt="Online IDE" /><br /><br /></span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Step 3</strong>: Invoke the chaincode package in the IDE. For instructions, please refer to </span><strong>3.2 Wuhan Chain Contract Deployment and Invocation</strong><span style="font-weight: 400;">.</span></li>
+</ul>
+<p><span style="font-weight: 400;">Note: If the chaincode package deployment has failed, the user can still edit, deploy and invoke the chaincode package directly in the IDE.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><strong>Chapter 4 Manage Account</strong></h2>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h3><strong>4.1 My Account</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>1. Top-up</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Deductions due to service release, product listing and other procedures will be debited from my account. Users must top up to ensure that there is sufficient balance in the account.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Instructions to top up:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Go to [User Center] -&gt; [My Account] -&gt; [Top up]</span></li>
+</ul>
+<p>&nbsp;</p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1TgsPEVJ4QXeq1cw9xV7E_CEwT0kXzMN1/view?usp=sharing" alt="Top-up" /></span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Enter the value to top up and click [Top up] to continue the payment. Once the payment is completed, the top-up will be added automatically.</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Note: If users choose to remit offline, please enter the remittance identification code to all the fields that you can leave a comment and transfer the correct amount to the designated account. The top-up will arrive in 1-3 working days. If it has not been received within 3 working days, please contact the customer service (telephone number: 400-071-8215, working days 08:00-17:30).</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Top-up by offline remittance is not supported by individual accounts.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">For corporate accounts, please ensure that you are using a business bank account for transactions. Otherwise, supporting documents must be provided and it may require a longer time to issue a commercial invoice.</span></li>
+</ul>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<h4><strong>2. Withdraw</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Users can withdraw balance in the account. The instructions are as follows:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">In [Personal Center] -&gt; [My Account], click [Withdrawal] and follow the page&nbsp;</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1Cc3aDsUhv4MDxThmhfA83Olpbid-JQUd/view?usp=sharing" alt="Withdraw" /><br /><br /></span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Enter the withdrawal amount and select [Apply for withdrawal] to proceed. The balance will be deducted immediately and the application will be reviewed.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">If successful, the balance will be transferred to the same account from which the top up is charged. Any balance generated due to coupons or other promotions cannot be withdrawn.</span></li>
+</ul>
+<h4><span style="font-weight: 400;"><br /><br /></span><strong>3. Refund</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Monthly bills and data usage bills are not allowed to be refunded. For annual bills with&nbsp;</span></p>
+<p><span style="font-weight: 400;">the remaining account period exceeding 1 month, you get a refund for any remaining full&nbsp;</span></p>
+<p><span style="font-weight: 400;">months. If you need a refund, please contact customer service (telephone number: 400-071- 8215, weekdays 08:00 - 17:30).</span></p>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<h4><strong>4. Invoice</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Please refer to </span><strong>4.3 My Invoice</strong><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;"><br /><br /></span></p>
+<h4><strong>5. Manage delivery addresses</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Blockchain service network currently supports issuing paper invoices and electronic&nbsp;</span></p>
+<p><span style="font-weight: 400;">invoices. This section is used to manage the recipient address of invoices. Instructions&nbsp;</span></p>
+<p><span style="font-weight: 400;">are as follows:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Go to [User Center] -&gt; [My Account] -&gt; [Manage Receipient Addresses] -&gt; [Add Recipient Address]</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1UQdKSHG1QX-d1U5mUeE8uXMwo7t24cNL/view?usp=sharing" alt="Recipients" /><br /><br /><br /></span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Enter the delivery details and click [OK] to submit</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1r-ntqS3QWBKw0AzV-7OBzsYqmGeAcK5O/view?usp=sharing" alt="New Address" /><br /><br /><br /></span></p>
+<h4><strong>6. Manage invoice headers</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">To manage information on the invoice header:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">[User Center] -&gt; [My Account] -&gt; [Manage Invoice Header] and select [Add invoice header]</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/19S4Eg6WPZ_O_Kt5DTTycv2QbtCY2mvVW/view?usp=sharing" alt="Invoice Header" /><br /></span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Select header type and enter the header information, and click [OK].</span></li>
+</ul>
+<p>&nbsp;</p>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/1FT92CXy1LmEIEroVrfWZ_-RlWGjP9pSt/view?usp=sharing" alt="New Header" /></span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<h4><strong>7. View transaction details</strong></h4>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Under [User Center] -&gt; [My Account], user can view their balance details, including top-ups, withdrawals, refunds, service release, service configuration upgrade, service periodic deduction, product launch, product periodic deduction, data usage fees etc.</span></p>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1mJMHB9iMhOSqe056y4m4b-jd18ZbYCHA/view?usp=sharing" alt="My Account" /><br /><br /><br /></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><strong>4.2 My Invoice</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Display bills generated by application products, application services, IPFS services, open consortium chain service, cross-chain services and proprietary node services.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The fees incurred by application services mainly include resource fees and data traffic fees. A prepayment model is used for resource fees, which depends on the TPS, storage capacity and number of billing nodes; whereas the data traffic fees uses a post-payment model, which depends on the actual traffic usage.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The fees incurred by application products is mainly the product launching fee, which is settled on a prepayment basis.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The fees incurred by IPFS services mainly include resource usage fees and data traffic fees. The resource usage fees are settled by prepayment, which is calculated according to the capacity; the data traffic fees are settled by post-payment, which is calculated according to the actual traffic usage.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The costs for the open consortium chain are mainly to allocate energy value or to allocate resources, which is settled by prepayment.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The fees incurred by cross-chain services are charged according to the number of cross-chain requests from the initial chain, which is settled by post-payment.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The fees incurred by proprietary node services mainly include resource fees and data traffic fees.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The resource usage fees are settled by prepayment, which depends on the cloud platform, underlying framework, region, number of nodes, host configuration and disk capacity; the data traffic fees are settled on a post-payment basis, which depends on the actual traffic usage.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">The costs incurred by DCC management are mainly energy value recharge fees, DDC generating fees and DCC sending fees. All of which are prepaid.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">An invoice will be generated when the above charges are incurred, including:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Service release</strong>: payment is settled when the service application is released; the amount is calculated based on TPS, storage capacity, and accounting nodes;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Service configuration upgrade</strong>: paid upon configuration upgrade, for the difference between the new configuration and the old configuration in the remaining period of the billing cycle;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Service periodic deduction</strong>: after the service is released, the system deducts the payment periodically on a yearly or monthly basis;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Periodic deduction of traffic</strong>: after the service is released, the system will deduct the payment on a weekly basis according to the actual traffic usage;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Product launch</strong>: payment is settled when the product is applied for launch;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Product periodic deduction</strong>: after the product is launched, the system will deduct the payment on a monthly basis;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>IPFS service activation</strong>: settled when the service is activated; the amount is calculated according to the capacity;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>IPFS service upgrade</strong>: paid upon service upgrade, for the difference between the new configuration and the old configuration in the remaining period of the billing cycle;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>IPFS service cycle</strong>: after the service is activated, the system periodically deducts payments on a yearly or monthly basis;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>IPFS traffic cycle</strong>: the system deducts payments on a weekly basis according to the actual traffic usage of file downloads;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Open consortium chain deduction</strong>: after the chain account is activated, deductions will be made when energy or resources are allocated;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Cross-chain service cycle</strong>: the system deducts payments on a weekly basis according to the actual number of cross-chains;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Proprietary node service activation</strong>: payment is made when the service is activated, and the amount is calculated based on the cloud platform, underlying framework, region, number of nodes, host configuration and disk capacity;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Proprietary node service cycle</strong>: after the service is activated, the system will deduct money periodically on a yearly or monthly basis;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Proprietary node traffic cycle</strong>: the system deducts payments on a weekly basis according to the actual traffic usage;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Proprietary node configuration upgrade</strong>: paid upon service upgrade, for the difference between the new configuration and the old configuration in the remaining period of the billing cycle;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>Energy value top-up</strong>: after a chain account is activated, deductions will be made when the energy value is recharged;</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>DCC generation</strong>: deduct when the DDC is generated</span></li>
+</ul>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"><strong>DDC sending</strong>: deduct when the DDC is sent</span></li>
+</ul>
+<p><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1VoIahg8NOV6LOv2WiLkxyCshe7fCPN4d/view?usp=sharing" alt="My Statement" /><br /></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><strong>4.3 My Invoice</strong></h3>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<p><span style="font-weight: 400;">Users can apply for invoicing from the OPE. The steps are as follows:</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Go to [User Center] -&gt; [My Invoice] -&gt; [Add Invoice];</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1WCOXC8-3RD4OgSUQ4YvOWxGhWkP5YZm0/view?usp=sharing" alt="My Invoice" /><br /><br /></span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The user selects the bill which needs an invoice. The billing amount will be calculated based on the actual value charged from the selected bill. Press [Next] to view the invoice details;</span></li>
+</ul>
+<p style="padding-left: 40px;"><span style="font-weight: 400;"><br /><img src="https://drive.google.com/file/d/1oP534ADBej7uGQDI2CicpHtmO709X6wz/view?usp=sharing" alt="Invoice request" /><br /></span></p>
+<p style="padding-left: 40px;">&nbsp;</p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Select the invoice header and invoice recipient, and select [OK] to submit the invoicing application.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">If the request is accepted, a paper and electronic invoice will be sent to the invoicing applicant address and email address.</span></li>
+</ul>
+<p><span style="font-weight: 400;"><br /><br /><br /><br /><br /><br /></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
