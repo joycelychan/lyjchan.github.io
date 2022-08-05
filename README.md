@@ -1,4 +1,5 @@
-# lyjchan.github.io
+# hello world
+demonstrating deployment to BSN OPE
 
 on your terminal
 
