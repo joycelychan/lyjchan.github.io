@@ -1,3 +1,5 @@
+const cors = require('cors')
+
 async function main() {
     const [deployer] = await hre.ethers.getSigners();
     const accountBalance = await deployer.getBalance();
