@@ -1,5 +1,3 @@
-const cors = require('cors')
-
 async function main() {
     const [deployer] = await hre.ethers.getSigners();
     const accountBalance = await deployer.getBalance();
@@ -11,14 +9,7 @@ async function main() {
     const HelloWorld = await hre.ethers.getContractFactory("HelloWorld");
     const hello_world = await HelloWorld.deploy("Hello World!");
 
-    await hello_world.deployed();
-
     console.log("Contract deployed to address:", hello_world.address);
 }
 
 main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-        console.error(error);
-        process.exit(1);
-    });
