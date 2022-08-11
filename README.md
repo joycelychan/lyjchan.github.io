@@ -20,5 +20,5 @@ $ npx hardhat test
 
 to deploy
 ```shell
-$ npx hardhat scripts/deploy.js --network devnet
+$ npx hardhat run scripts/deploy.js --network devnet
 ```
